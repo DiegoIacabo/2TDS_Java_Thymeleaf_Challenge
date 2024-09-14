@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sistema de Gerenciamento de Clientes</title>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container" th:object="${client}">
+            <h1>Sistema de Gerenciamento de Clientes</h1>
+            <hr>
+            <h2>Detalhes do Cliente</h2>
+            <hr>
+            <h3>Nome</h3>
+            <p th:text="*{name}">Nome do Cliente</p>
+            <hr>
+            <h3>CPF</h3>
+            <p th:text="*{cpf}">CPF do Cliente</p>
+            <hr>
+            <h3>Data de Nascimento</h3>
+            <p th:text="*{birth}">Nascimento do Cliente</p>
+            <hr>
+            <h3>Renda</h3>
+            <p th:text="*{income}">Renda do Cliente</p>
+            <hr>
+            <a th:href="@{/showFormForUpdate/{id}(id=${client.id})}" class="btn btn-primary">Atualizar</a>
+            <hr>
+            <table style="width: 80%" border="1" class="table table-stripped table-responsive-md">
+                <thead>
+                <tr>
+                    <th>N° do Cartão</th>
+                    <th>Código de Segurança</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="creditCard:${allCardList}">
+                    <td th:text="${creditCard.card_number}"></td>
+                    <td th:text="${creditCard.security_code}"></td>
+                    <td>
+                        <a th:href="@{/creditCards/delete/{id}(id=${creditCard.id})}" class="btn btn-danger">Deletar</a>
+                        <a th:href="@{/creditCards/show/{id}(id=${creditCard.id})}" class="btn btn-primary">Detalhes</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/creditCards/addNew}" class="btn btn-primary">Adicionar Cartão</a>
+        </div>
+    </body>
+</html>

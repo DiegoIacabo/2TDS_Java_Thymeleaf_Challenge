@@ -1,0 +1,41 @@
+<!doctype html>
+<html lan="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title> Clientes </title>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+              crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container" align="center">
+            <h3>Lista de Clientes</h3>
+            <a th:href="@{/addNew}" class="btn btn-primary btn-mb-3">Adicionar</a>
+            <table style="width: 80%" border="1" class="table table-stripped table-responsive-md">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="client:${allClientList}">
+                        <td th:text="${client.name}"></td>
+                        <td th:text="${client.cpf}"></td>
+                        <td>
+                            <a th:href="@{/showFormForUpdate/{id}(id=${client.id})}" class="btn btn-primary">Atualizar</a>
+                            <a th:href="@{/delete/{id}(id=${client.id})}" class="btn btn-danger">Deletar</a>
+                            <a th:href="@{/show/{id}(id=${client.id})}" class="btn btn-primary">Detalhes</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/creditCards}" class="btn btn-primary btn-mb-3">Mostrar Cartões</a>
+        </div>
+    </body>
+
+</html>
+
