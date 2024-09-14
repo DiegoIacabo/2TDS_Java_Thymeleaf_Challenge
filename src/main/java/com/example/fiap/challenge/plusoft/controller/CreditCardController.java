@@ -19,7 +19,7 @@ public class CreditCardController {
     @Autowired
     private @Setter CreditCardServiceImpl service;
 
-    @GetMapping("/")
+    @GetMapping("/creditCards")
     public String view(Model model) {
         List<CreditCard> cardList = this.service.findAllCards();
         model.addAttribute("allCardList", cardList);
@@ -36,13 +36,13 @@ public class CreditCardController {
     @PostMapping("/save")
     public String save(@ModelAttribute("creditCard") CreditCard creditCard) {
         this.service.save(creditCard);
-        return "cardList";
+        return "redirect:/creditCards/creditCards";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteThrougId(@PathVariable("id") Long id) {
         this.service.deleteById(id);
-        return "redirect:/";
+        return "redirect:/creditCards/creditCards";
     }
 
     @GetMapping("/show/{id}")
