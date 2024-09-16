@@ -25,7 +25,7 @@ como ofertas personalizadas e melhorias no atendimento ao cliente, auxiliando na
     5. Rodar a aplicação no navegador no localhost:8080;
 
 ## Vídeo Pitch
-- Link: 
+- Link: https://www.youtube.com/watch?v=AVZ8HaPa_AQ
 
 ## Repositório no GitHub
 - Link: https://github.com/DiegoIacabo/2TDS_Java_Thymeleaf_Challenge
