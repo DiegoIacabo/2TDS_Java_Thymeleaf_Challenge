@@ -28,25 +28,6 @@
             <hr>
             <a th:href="@{/showFormForUpdate/{id}(id=${client.id})}" class="btn btn-primary">Atualizar</a>
             <hr>
-            <table style="width: 80%" border="1" class="table table-stripped table-responsive-md">
-                <thead>
-                <tr>
-                    <th>N° do Cartão</th>
-                    <th>Código de Segurança</th>
-                    <th>Ações</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="creditCard:${allCardList}">
-                    <td th:text="${creditCard.card_number}"></td>
-                    <td th:text="${creditCard.security_code}"></td>
-                    <td>
-                        <a th:href="@{/creditCards/delete/{id}(id=${creditCard.id})}" class="btn btn-danger">Deletar</a>
-                        <a th:href="@{/creditCards/show/{id}(id=${creditCard.id})}" class="btn btn-primary">Detalhes</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
             <a th:href="@{/creditCards/addNew}" class="btn btn-primary">Adicionar Cartão</a>
             <hr>
             <a th:href="@{/}" class="btn btn-primary btn-mb-3">Voltar para página inicial</a>

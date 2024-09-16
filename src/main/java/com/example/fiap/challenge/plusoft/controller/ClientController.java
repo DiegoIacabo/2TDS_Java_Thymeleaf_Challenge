@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-//@RequestMapping("/clients")
 public class ClientController {
 
     @Autowired
