@@ -11,14 +11,14 @@
 
     <body>
         <div class="container" align="center">
-            <h3>Lista de Clientes</h3>
-            <a th:href="@{/addNew}" class="btn btn-primary btn-mb-3">Adicionar</a>
+            <h3 th:text="#{client.list.title}">Lista de Clientes</h3>
+            <a th:href="@{/addNew}" class="btn btn-primary btn-mb-3" th:text="#{client.add.new}">Adicionar</a>
             <table style="width: 80%" border="1" class="table table-stripped table-responsive-md">
                 <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>Ações</th>
+                    <th th:text="#{client.name}">Nome</th>
+                    <th th:text="#{client.cpf}">CPF</th>
+                    <th th:text="#{client.actions}">Ações</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,9 +26,9 @@
                         <td th:text="${client.name}"></td>
                         <td th:text="${client.cpf}"></td>
                         <td>
-                            <a th:href="@{/showFormForUpdate/{id}(id=${client.id})}" class="btn btn-primary">Atualizar</a>
-                            <a th:href="@{/delete/{id}(id=${client.id})}" class="btn btn-danger">Deletar</a>
-                            <a th:href="@{/show/{id}(id=${client.id})}" class="btn btn-primary">Detalhes</a>
+                            <a th:href="@{/showFormForUpdate/{id}(id=${client.id})}" class="btn btn-primary" th:text="#{client.update}">Atualizar</a>
+                            <a th:href="@{/delete/{id}(id=${client.id})}" class="btn btn-danger" th:text="#{client.delete}">Deletar</a>
+                            <a th:href="@{/show/{id}(id=${client.id})}" class="btn btn-primary" th:text="#{client.details}">Detalhes</a>
                         </td>
                     </tr>
                 </tbody>
